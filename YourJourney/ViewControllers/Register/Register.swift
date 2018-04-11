@@ -105,7 +105,7 @@ class Register: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
                                                      textFieldPassword.text!,
                                                      textFieldPasswordConfirm.text!)
         {
-            Utils.showError(error, viewController: self)
+            self.showError(error)
             return
         }
         
@@ -136,7 +136,7 @@ class Register: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
 
                 self.revealViewController().pushFrontViewController(nextVc, animated: true)
             } else if responce!.code == 14 {
-                Utils.showError("Пользователь с таким email уже существует!", viewController: self)
+                self.showError("Пользователь с таким email уже существует!")
             } else {
                 SVProgressHUD.showError(withStatus: "Ошибка")
                 return

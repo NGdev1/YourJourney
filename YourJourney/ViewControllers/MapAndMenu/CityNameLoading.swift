@@ -18,14 +18,19 @@ extension Map : GMSAutocompleteViewControllerDelegate {
         
         self.cityView.state = .displayCity
         
+        UIApplication.shared.statusBarStyle = .lightContent
         dismiss(animated: true, completion: nil)
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        UIApplication.shared.statusBarStyle = .lightContent
+        self.cityView.state = .displayCity
         print("Error: ", error.localizedDescription)
     }
     
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.statusBarStyle = .lightContent
+        self.cityView.state = .displayCity
         dismiss(animated: true, completion: nil)
     }
     
@@ -40,7 +45,16 @@ extension Map : GMSAutocompleteViewControllerDelegate {
     
     func showAutoCompleteViewController(){
         let autocompleteController = GMSAutocompleteViewController()
+        
+        let filter = GMSAutocompleteFilter()
+        filter.type = .city
+        autocompleteController.autocompleteFilter = filter
+        
         autocompleteController.delegate = self
+        
+        UIApplication.shared.statusBarStyle = .default
+        cityView.state = .changingCity
+        
         present(autocompleteController, animated: true, completion: nil)
     }
 }

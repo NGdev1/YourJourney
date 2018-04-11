@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlaceDescription: UIView {
+class PlaceDescriptionView: UIView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
@@ -33,7 +33,7 @@ class PlaceDescription: UIView {
     }
     
     func setupView() {
-        Bundle.main.loadNibNamed("PlaceDescription", owner: self, options: nil)
+        Bundle.main.loadNibNamed("PlaceDescriptionView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]

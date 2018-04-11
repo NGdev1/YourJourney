@@ -310,7 +310,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxt-CM-qeg" customClass="PlaceDescription" customModule="YourJourney" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxt-CM-qeg" customClass="PlaceDescriptionView" customModule="YourJourney" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="455" width="375" height="212"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="212" id="cqz-dX-tB6"/>

@@ -10,11 +10,11 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
-class Map: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
+class Map: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate, SWRevealViewControllerDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var buttonMenu: UIBarButtonItem!
-    @IBOutlet weak var placeDescription: PlaceDescription!
+    @IBOutlet weak var placeDescription: PlaceDescriptionView!
     @IBOutlet weak var heigntOverlayViewConstraint: NSLayoutConstraint!
     
     var cityView : CityView = CityView()
@@ -28,6 +28,7 @@ class Map: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
         
         if self.revealViewController() != nil {
             //menuButton.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: UIControlEvents.TouchDown)
+            self.revealViewController().delegate = self
             buttonMenu.target = self.revealViewController()
             buttonMenu.action = #selector(SWRevealViewController.revealToggle(_:))
             //self.mapView.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -82,7 +83,6 @@ class Map: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     @objc func chacgeCity(){
         showAutoCompleteViewController()
-        cityView.state = .changingCity
     }
     
     @objc func swipeOverlayView(gesture: UIGestureRecognizer) {
@@ -153,13 +153,21 @@ class Map: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     func addMarkerWith(location: CLLocationCoordinate2D, likes: String){
         let position = location
         let marker = GMSMarker(position: position)
-        marker.icon = Utils.drawMapPin(likes)
+        marker.icon = MapPin.drawMapPin(likes)
         marker.map = mapView
     }
     
     func setDefaultLocation(){
         centerMapOnLocation(CLLocationCoordinate2D(latitude: 55.802182,
                                                    longitude: 49.105328))
+    }
+    
+    func revealController(_ revealController: SWRevealViewController!, didMoveTo position: FrontViewPosition) {
+        if position == .left {
+            UIApplication.shared.statusBarStyle = .lightContent
+        } else {
+            UIApplication.shared.statusBarStyle = .default
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -175,8 +183,29 @@ class Map: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
         let location = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,
                                               longitude: userLocation.coordinate.longitude)
         
+        if cityView.state == .loading {
+            reverseGeocodeCoordinate(coordinate: location)
+        }
+        
         centerMapOnLocation(location)
         mapView.isHidden = false
+    }
+    
+    func reverseGeocodeCoordinate(coordinate: CLLocationCoordinate2D) {
+        
+        let geocoder = GMSGeocoder()
+        
+        geocoder.reverseGeocodeCoordinate(coordinate) { response, error in
+            if let address = response?.firstResult() {
+                
+                let city = address.locality
+                
+                self.cityView.state = .displayCity
+                self.cityView.changeCityButton!.setTitle(city, for: .normal)
+                
+                self.mapView.startShowingActivityIndicator()
+            }
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

@@ -29,19 +29,19 @@ class CityView : UIView {
         set(newState) {
             DispatchQueue.main.async {
                 if newState == .loading {
-                    self.changeCityActivityIndicator?.isHidden = false
-                    self.changeCityTriangle?.isHidden = true
+                    self.changeCityActivityIndicator!.startAnimating()
+                    self.changeCityTriangle!.isHidden = true
                     self.changeCityButton?.setTitle("Город", for: .normal)
                 } else if newState == .changingCity {
-                    self.changeCityActivityIndicator?.isHidden = true
-                    self.changeCityTriangle?.isHidden = false
+                    self.changeCityActivityIndicator!.stopAnimating()
+                    self.changeCityTriangle!.isHidden = false
                     
                     UIView.animate(withDuration: 0.3) {
                         self.changeCityTriangle!.transform = CGAffineTransform.identity.rotated(by: 3.14)
                     }
                 } else if newState == .displayCity {
-                    self.changeCityActivityIndicator?.isHidden = true
-                    self.changeCityTriangle?.isHidden = false
+                    self.changeCityActivityIndicator!.stopAnimating()
+                    self.changeCityTriangle!.isHidden = false
                     
                     UIView.animate(withDuration: 0.3) {
                         self.changeCityTriangle?.transform = .identity

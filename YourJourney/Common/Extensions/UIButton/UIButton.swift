@@ -12,6 +12,6 @@ extension UIButton {
     func applyYellowButtonDesign() {
         self.layer.cornerRadius = self.bounds.height / 2
         self.setTitleColor(UIColor.black, for: .normal)
-        self.backgroundColor = UIColor.sunflowerYellow
+        self.backgroundColor = ColorHelper.color(for: .sunflowerYellow)
     }
 }

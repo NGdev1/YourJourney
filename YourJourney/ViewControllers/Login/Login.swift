@@ -91,7 +91,7 @@ class Login: UIViewController, UITextFieldDelegate {
         if let error = DataCheck.checkLoginInputs(textFieldMail.text!,
                                                   textFieldPassword.text!)
         {
-            Utils.showError(error, viewController: self)
+            self.showError(error)
             return
         }
         
@@ -126,7 +126,7 @@ class Login: UIViewController, UITextFieldDelegate {
                 self.revealViewController().pushFrontViewController(nextVc, animated: true)
                 
             } else if responce!.code == 10 {
-                Utils.showError("Неверный email или пароль", viewController: self)
+                self.showError("Неверный email или пароль")
             } else {
                 SVProgressHUD.showError(withStatus: "Ошибка")
                 return

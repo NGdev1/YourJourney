@@ -60,7 +60,7 @@ class DataManager {
         if maxWidth != nil {
             if var image = UIImage(data: data) {
                 print("resizing image before save...")
-                image = Utils.scaleImage(image: image, maximumWidth: maxWidth!)
+                image = image.scale(maximumWidth: maxWidth!)
                 
                 if let dataScaledImage = UIImagePNGRepresentation(image) {
                     saveDataToCash(pathName: pathName, fileName: fileName, data: dataScaledImage)
