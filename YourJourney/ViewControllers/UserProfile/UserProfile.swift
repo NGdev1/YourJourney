@@ -1,5 +1,5 @@
 //
-//  Profile.swift
+//  UserProfile.swift
 //  YourJourney
 //
 //  Created by Apple on 13.12.2017.
@@ -8,11 +8,9 @@
 
 import UIKit
 
-class Profile: UIViewController {
+class UserProfile: UIViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    
-    @IBOutlet weak var label: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +22,14 @@ class Profile: UIViewController {
             //self.mapView.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        label.text = DataManager.getValue(key: "token") as? String
+        
+    }
+    
+    func loadProfile() {
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .lightContent
     }
 }

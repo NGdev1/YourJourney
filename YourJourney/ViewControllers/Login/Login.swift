@@ -95,6 +95,8 @@ class Login: UIViewController, UITextFieldDelegate {
             return
         }
         
+        self.view.endEditing(true)
+        
         SVProgressHUD.show()
         
         _ = APIService.shared().login(mail: textFieldMail.text!, password: textFieldPassword.text!, completionHandler: {(responce: (code: Int?, body: JSON?)?, error) in
@@ -120,7 +122,7 @@ class Login: UIViewController, UITextFieldDelegate {
                     value: responce!.body!["refresh_token"].string!,
                     forKey: "refresh_token")
                 
-                let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+                let storyboard = UIStoryboard(name: "UserProfile", bundle: nil)
                 let nextVc = storyboard.instantiateInitialViewController()
                 
                 self.revealViewController().pushFrontViewController(nextVc, animated: true)

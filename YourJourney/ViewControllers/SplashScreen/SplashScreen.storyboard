@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1QX-ZK-JRs">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash Screen-->
+        <scene sceneID="0L2-ci-MMX">
+            <objects>
+                <viewController id="1QX-ZK-JRs" customClass="SplashScreen" customModule="YourJourney" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IE1-9g-bPL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sailBoat" translatesAutoresizingMaskIntoConstraints="NO" id="fmj-RA-Bmv">
+                                <rect key="frame" x="139" y="244" width="97" height="139"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="139" id="Z8M-t5-Qsz"/>
+                                    <constraint firstAttribute="width" constant="97" id="kyd-R0-8yp"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.83529411760000005" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fmj-RA-Bmv" firstAttribute="centerX" secondItem="3cQ-Fn-CNY" secondAttribute="centerX" id="7ss-zR-Kut"/>
+                            <constraint firstItem="fmj-RA-Bmv" firstAttribute="centerY" secondItem="3cQ-Fn-CNY" secondAttribute="centerY" constant="-30" id="ztt-vs-2hp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3cQ-Fn-CNY"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="fmj-RA-Bmv" id="mDe-HL-yce"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jxo-Qw-cxe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="145" y="95"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="sailBoat" width="97" height="139"/>
+    </resources>
+</document>

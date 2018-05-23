@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,20 +19,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sailBoat" translatesAutoresizingMaskIntoConstraints="NO" id="4oZ-tR-bZy">
-                                <rect key="frame" x="139" y="204" width="97" height="139"/>
+                                <rect key="frame" x="139" y="244" width="97" height="139"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="6Lg-7k-qPn"/>
                                     <constraint firstAttribute="height" constant="139" id="BLF-oc-FSz"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YourJourney" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzA-sN-uIj">
-                                <rect key="frame" x="103.5" y="359" width="168.5" height="38.5"/>
+                                <rect key="frame" x="103.5" y="399" width="168.5" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Приложение для тех, кто любит путешествовать" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZW-sD-gnk">
-                                <rect key="frame" x="43" y="409.5" width="289" height="60"/>
+                                <rect key="frame" x="43" y="449.5" width="289" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                         <constraints>
                             <constraint firstItem="GZW-sD-gnk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="8" id="AOM-KG-b7m"/>
                             <constraint firstItem="4oZ-tR-bZy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="HqK-0y-ce8"/>
-                            <constraint firstItem="4oZ-tR-bZy" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-70" id="J0f-AM-0T3"/>
+                            <constraint firstItem="4oZ-tR-bZy" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-30" id="J0f-AM-0T3"/>
                             <constraint firstItem="TzA-sN-uIj" firstAttribute="top" secondItem="4oZ-tR-bZy" secondAttribute="bottom" constant="16" id="Sqr-q1-gHQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TzA-sN-uIj" secondAttribute="trailing" constant="10" id="UfC-ny-ruI"/>
                             <constraint firstItem="GZW-sD-gnk" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ftU-qQ-OEU"/>

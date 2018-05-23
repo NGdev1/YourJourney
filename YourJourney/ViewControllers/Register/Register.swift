@@ -109,6 +109,8 @@ class Register: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
             return
         }
         
+        self.view.endEditing(true)
+        
         SVProgressHUD.show()
         
         _ = APIService.shared().register(name: textFieldName.text!,
@@ -131,7 +133,7 @@ class Register: UIViewController, UITextFieldDelegate, UIScrollViewDelegate {
                     value: responce!.body!["refresh_token"].string!,
                     forKey: "refresh_token")
                 
-                let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+                let storyboard = UIStoryboard(name: "UserProfile", bundle: nil)
                 let nextVc = storyboard.instantiateInitialViewController()
 
                 self.revealViewController().pushFrontViewController(nextVc, animated: true)

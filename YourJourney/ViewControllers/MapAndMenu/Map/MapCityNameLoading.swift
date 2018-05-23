@@ -1,5 +1,5 @@
 //
-//  CityNameLoading.swift
+//  MapCityNameLoading.swift
 //  YourJourney
 //
 //  Created by Apple on 19.12.2017.
@@ -17,6 +17,25 @@ extension Map : GMSAutocompleteViewControllerDelegate {
         centerMapOnLocation(place.coordinate)
         
         self.cityView.state = .displayCity
+        
+        var country: String!
+        var city: String!
+        
+        // Get the address components.
+        if let addressLines = place.addressComponents {
+            // Populate all of the address fields we can find.
+            for field in addressLines {
+                if field.type == kGMSPlaceTypeCountry {
+                    country = field.name
+                } else if field.type == kGMSPlaceTypeLocality {
+                    city = field.name
+                }
+                
+                print("Type: \(field.type), Name: \(field.name)")
+            }
+        }
+        
+        self.loadPlaces(country: country, city: city)
         
         UIApplication.shared.statusBarStyle = .lightContent
         dismiss(animated: true, completion: nil)

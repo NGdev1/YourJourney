@@ -27,7 +27,7 @@ class Menu: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !authorized {
-            if indexPath.row == 1 || indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5 {
+            if indexPath.row == 1 || indexPath.row == 3 || indexPath.row == 4 {
                 let storyboard = UIStoryboard(name: "NotAuthorized", bundle: nil)
                 let nextVc = storyboard.instantiateInitialViewController()
                 
@@ -35,7 +35,7 @@ class Menu: UITableViewController {
             }
         } else {
             if indexPath.row == 1 {
-                let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+                let storyboard = UIStoryboard(name: "UserProfile", bundle: nil)
                 let nextVc = storyboard.instantiateInitialViewController()
                 
                 self.revealViewController().pushFrontViewController(nextVc, animated: true)

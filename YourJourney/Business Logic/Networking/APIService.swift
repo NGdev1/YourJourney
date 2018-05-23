@@ -32,4 +32,49 @@ class APIService: NSObject {
         let operation = RegisterOperation(name: name, mail: mail, password: password)
         return operation.execute(in: dispatcher, completionHandler: completionHandler)
     }
+    
+    public func updateToken(completionHandler: @escaping((code: Int?, body: JSON?)?, Error?) -> Void) -> URLSessionDataTask {
+        let operation = UpdateTokenOperation()
+        return operation.execute(in: dispatcher, completionHandler: completionHandler)
+    }
+    
+    public func topPlaces(country: String, city: String, topType: TopPlacesType, completionHandler: @escaping((code: Int?, body: JSON?)?, Error?) -> Void) -> URLSessionDataTask {
+        let operation = TopPlacesOperation(country: country, city: city, topType: topType)
+        return operation.execute(in: dispatcher, completionHandler: completionHandler)
+    }
+    
+    public func places(country: String, city: String, completionHandler: @escaping((code: Int?, body: JSON?)?, Error?) -> Void) -> URLSessionDataTask {
+        let operation = PlacesOperation(country: country, city: city)
+        return operation.execute(in: dispatcher, completionHandler: completionHandler)
+    }
+    
+    public func place(id: Int, completionHandler: @escaping((code: Int?, body: JSON?)?, Error?) -> Void) -> URLSessionDataTask {
+        let operation = PlaceOperation(id: id)
+        return operation.execute(in: dispatcher, completionHandler: completionHandler)
+    }
+    
+    public func placeReport(id: Int, completionHandler: @escaping((code: Int?, body: JSON?)?, Error?) -> Void) -> URLSessionDataTask {
+        let operation = PlaceReportOperation(placeId: id)
+        return operation.execute(in: dispatcher, completionHandler: completionHandler)
+    }
+    
+    public func tourist(id: Int, places: Bool, completionHandler: @escaping((code: Int?, body: JSON?)?, Error?) -> Void) -> URLSessionDataTask {
+        let operation = TouristOperation(id: id, places: places)
+        return operation.execute(in: dispatcher, completionHandler: completionHandler)
+    }
+    
+    public func comments(placeId: Int, offset: Int, limit: Int, completionHandler: @escaping((code: Int?, body: JSON?)?, Error?) -> Void) -> URLSessionDataTask {
+        let operation = CommentsOperation(placeId: placeId, offset: offset, limit: offset)
+        return operation.execute(in: dispatcher, completionHandler: completionHandler)
+    }
+    
+    public func writeComment(placeId: Int, text: String, completionHandler: @escaping((code: Int?, body: JSON?)?, Error?) -> Void) -> URLSessionDataTask {
+        let operation = WriteCommentOperation(placeId: placeId, text: text)
+        return operation.execute(in: dispatcher, completionHandler: completionHandler)
+    }
+    
+    public func userProfile(places: Bool, completionHandler: @escaping((code: Int?, body: JSON?)?, Error?) -> Void) -> URLSessionDataTask {
+        let operation = UserProfileOperation(places: places)
+        return operation.execute(in: dispatcher, completionHandler: completionHandler)
+    }
 }

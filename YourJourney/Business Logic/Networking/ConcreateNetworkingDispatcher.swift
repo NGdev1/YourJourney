@@ -10,7 +10,8 @@ public enum APIErrors: Error {
     case serverError
     case noConnection
     case unknounError
-    
+    case noInfo
+    case badRequest
 }
 
 
@@ -18,15 +19,18 @@ extension APIErrors: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .serverError:
-            return "ErrorServer"
+            return "Ошибка сервера"
         case .unknounError:
-            return "ErrorUnknoun"
+            return "Неизвестная ошибка"
         case .noConnection:
-            return "ErrorNoConnection"
+            return "Нет соединения"
+        case .noInfo:
+            return "Информация не найдена"
+        case .badRequest:
+            return "Некорректный запрос"
         }
     }
 }
-
 
 class ConcreateNetworkingDispatcher: NetworkingDispatcher {
     
